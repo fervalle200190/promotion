@@ -1,0 +1,688 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f6d6de">
+<meta name="color-scheme" content="light">
+<title>Dra. Eglee Margarita Rodríguez Rodríguez</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#fff8f1;
+  --paper:#fbefe6;
+  --blush:#f6d6de;
+  --blush-2:#f1bccb;
+  --rose:#d6336c;
+  --rose-deep:#a61e4d;
+  --gold:#c9a24a;
+  --gold-soft:#e6c98a;
+  --ink:#3d2530;
+  --ink-soft:#7a5a66;
+  --display:"Fraunces", Georgia, serif;
+  --sans:"Manrope", system-ui, sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--cream);-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--sans);color:var(--ink);background:var(--cream);
+  overflow-x:clip;line-height:1.55;-webkit-font-smoothing:antialiased;
+}
+svg{display:block}
+.kicker{
+  font-family:var(--sans);font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;
+  color:var(--rose);font-weight:600;
+}
+.serif{font-family:var(--display)}
+.wrap{width:100%;max-width:440px;margin:0 auto;padding:0 20px}
+
+/* ---------- Barra de progreso ---------- */
+.progress{
+  position:fixed;inset:0 0 auto 0;height:3px;z-index:50;
+  background:linear-gradient(90deg,var(--rose),var(--gold));
+  transform-origin:0 50%;transform:scaleX(0);
+}
+
+/* ---------- Escenas ---------- */
+section{position:relative}
+.screen{min-height:100svh;display:grid;place-items:center;padding:72px 0}
+.tall{height:240svh}
+.sticky{
+  position:sticky;top:0;height:100svh;overflow:hidden;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:0 20px;
+}
+
+/* ---------- 1. Hero ---------- */
+.hero{
+  min-height:100svh;display:grid;place-items:center;text-align:center;overflow:hidden;
+  background:
+    radial-gradient(120% 70% at 50% 38%, #ffe9d6 0%, rgba(255,233,214,0) 60%),
+    linear-gradient(180deg,var(--blush) 0%,var(--cream) 100%);
+}
+.sun{
+  position:absolute;left:50%;top:36%;width:340px;height:340px;margin:-170px 0 0 -170px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(255,214,186,.9) 0%,rgba(246,214,222,0) 68%);
+}
+.hero-inner{position:relative;z-index:2;padding:0 20px}
+.hero .kicker{margin-bottom:22px}
+.name{font-family:var(--display);font-weight:400;color:var(--ink);line-height:.98;letter-spacing:-.01em}
+.name .line{display:block}
+.name .dra{font-size:1.5rem;font-style:italic;font-weight:300;color:var(--rose);margin-bottom:10px}
+.name .big{font-size:clamp(2.9rem,14.5vw,5.4rem)}
+.name .big.it{font-style:italic;font-weight:300;color:var(--rose-deep)}
+.word{display:inline-block;white-space:nowrap}
+.ch{display:inline-block}
+.hero-sub{margin-top:26px;font-size:.95rem;color:var(--ink-soft)}
+.hero-sub b{font-weight:600;color:var(--ink)}
+.scroll-cue{
+  position:absolute;bottom:28px;left:50%;margin-left:-11px;width:22px;height:36px;
+  border:1.5px solid var(--ink-soft);border-radius:12px;opacity:.6;z-index:2;
+}
+.scroll-cue::after{
+  content:"";position:absolute;left:50%;top:7px;width:3px;height:7px;margin-left:-1.5px;
+  border-radius:2px;background:var(--ink-soft);
+}
+.petals{position:absolute;inset:0;pointer-events:none;z-index:1}
+.petal{
+  position:absolute;top:-24px;left:var(--x);width:var(--s);height:calc(var(--s) * .82);
+  border-radius:150% 0 150% 0;opacity:.0;
+  background:linear-gradient(135deg,#f9c9d6,#e7799a);
+}
+
+/* ---------- 2. ECG ---------- */
+#ecg{view-timeline:--ecg block;background:var(--cream)}
+.ecg{width:min(100%,400px);height:auto;overflow:visible}
+.ecg-line{fill:none;stroke:var(--rose);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.ecg-glow{fill:none;stroke:var(--blush-2);stroke-width:8;stroke-linecap:round;stroke-linejoin:round;opacity:.55}
+.ecg-grid line{stroke:#f1dcd9;stroke-width:.6}
+.heart-beat{transform-box:fill-box;transform-origin:50% 60%}
+.heart-fill{fill:var(--rose)}
+.ecg-title{font-family:var(--display);font-size:clamp(2.4rem,11vw,3.4rem);font-weight:400;line-height:1;margin:34px 0 14px}
+.ecg-title em{color:var(--rose);font-weight:300}
+
+/* ---------- 3. Laurel ---------- */
+#laurel{view-timeline:--laurel block;background:linear-gradient(180deg,var(--cream),var(--paper))}
+.laurel-box{position:relative;width:min(84vw,330px);aspect-ratio:1}
+.laurel-box svg{width:100%;height:100%}
+.stem{fill:none;stroke:url(#gold);stroke-width:2.4;stroke-linecap:round}
+.leaf{fill:url(#leafg);transform-box:fill-box;transform-origin:0% 50%}
+.laurel-text{
+  position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  font-family:var(--display);line-height:1.02;
+}
+.laurel-text .s1{font-size:clamp(2.2rem,10.5vw,3rem);font-style:italic;font-weight:300;color:var(--rose-deep)}
+.laurel-text .s2{font-size:clamp(1.5rem,7vw,2rem);font-weight:500;color:var(--ink);letter-spacing:.02em}
+
+/* ---------- 4. Lo lograste (pixel) ---------- */
+#logro{view-timeline:--logro block;background:linear-gradient(180deg,var(--paper),#fbe7ea)}
+.px-frame{
+  width:min(100%,360px);padding:10px;border-radius:6px;background:#7a4a2e;
+  box-shadow:0 0 0 3px #4a2c1b,0 18px 40px -20px rgba(74,44,27,.6);
+}
+.pixel{width:100%;height:auto;shape-rendering:crispEdges;image-rendering:pixelated;border-radius:2px}
+.done{
+  margin-top:30px;font-family:var(--display);font-size:clamp(2.8rem,13vw,3.6rem);
+  font-weight:300;font-style:italic;color:var(--rose-deep);line-height:1;
+}
+
+/* ---------- 5. Momento favorito ---------- */
+#medal{
+  view-timeline:--medal block;height:340svh;
+  background:radial-gradient(90% 60% at 50% 42%,#fde7ec 0%,var(--blush) 55%,#efc3cf 100%);
+}
+#medal .sticky{justify-content:flex-start;padding-top:0}
+.medal-stage{position:relative;width:200px;height:min(400px,46svh);margin:0 0 10px}
+.medal-drop{position:absolute;left:0;right:0;bottom:0;height:560px;transform-origin:50% 0}
+.medal-drop svg{position:absolute;bottom:0;left:0;width:200px;height:560px}
+.medal-glow{
+  position:absolute;left:50%;bottom:-10px;width:260px;height:260px;margin-left:-130px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,236,190,.95) 0%,rgba(255,236,190,0) 65%);
+}
+.spark{
+  position:absolute;width:10px;height:10px;left:calc(50% - 5px);bottom:70px;
+  background:var(--gold);clip-path:polygon(50% 0,62% 38%,100% 50%,62% 62%,50% 100%,38% 62%,0 50%,38% 38%);
+}
+.m-lines{max-width:31ch;display:grid;gap:12px}
+.m-lines p{font-size:1.02rem;color:var(--ink-soft)}
+.m-lines .hl{
+  font-family:var(--display);font-size:clamp(1.6rem,7.4vw,2.05rem);line-height:1.12;color:var(--ink);font-weight:400;
+}
+.m-lines .hl em{color:var(--rose-deep);font-style:italic;font-weight:400}
+
+/* ---------- 6. Celebración pendiente ---------- */
+.treat{background:var(--cream);text-align:center}
+.treat h2{font-family:var(--display);font-weight:400;font-size:2.3rem;line-height:1.05;margin:10px 0 26px}
+.treat h2 em{color:var(--rose);font-weight:300}
+.treat-art{display:flex;align-items:flex-end;justify-content:center;gap:16px;margin-bottom:28px}
+.ticket{
+  position:relative;text-align:left;padding:22px 22px 20px;border-radius:16px;
+  background:linear-gradient(135deg,#fff,#fdf0f3);border:1.5px dashed var(--blush-2);
+}
+.ticket .row{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid #f3e1e3;font-size:.95rem}
+.ticket .row:last-of-type{border-bottom:0}
+.ticket .row span:first-child{color:var(--ink-soft)}
+.ticket .row span:last-child{font-weight:600;text-align:right}
+.ticket .sign{margin-top:14px;font-family:var(--display);font-style:italic;font-size:1.3rem;color:var(--rose-deep)}
+
+/* ---------- 7. Cierre ---------- */
+.close{
+  min-height:100svh;display:grid;place-items:center;text-align:center;
+  background:linear-gradient(180deg,var(--cream) 0%,var(--blush) 100%);
+}
+.close h2{font-family:var(--display);font-weight:300;font-size:clamp(2.6rem,12.5vw,3.8rem);line-height:1.02;margin:14px 0 18px}
+.close h2 em{display:block;font-style:italic;color:var(--rose-deep);font-weight:400}
+.close p{max-width:30ch;margin:0 auto;color:var(--ink-soft)}
+.btn{
+  margin-top:34px;border:0;cursor:pointer;font:600 1rem var(--sans);color:#fff;
+  padding:16px 30px;border-radius:999px;min-height:52px;
+  background:linear-gradient(135deg,var(--rose),var(--rose-deep));
+  box-shadow:0 14px 30px -12px rgba(166,30,77,.6);
+  -webkit-tap-highlight-color:transparent;touch-action:manipulation;
+}
+.btn:active{transform:scale(.96)}
+.signoff{margin-top:56px;font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);opacity:.75}
+#confetti{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:60}
+
+/* =========================================================
+   Animaciones (solo si el usuario no pidió reducir movimiento)
+   Base: animaciones por tiempo, pausadas hasta que el
+   IntersectionObserver agrega .in (fallback).
+   Si hay scroll-driven animations, se atan al scroll.
+   ========================================================= */
+@media (prefers-reduced-motion: no-preference){
+
+  @keyframes chIn{from{opacity:0;transform:translateY(.45em) rotate(4deg)}to{opacity:1;transform:none}}
+  @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+  @keyframes draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+  @keyframes pop{from{opacity:0;transform:scale(0)}to{opacity:1;transform:scale(1)}}
+  @keyframes breathe{0%,100%{opacity:.75;transform:scale(1)}50%{opacity:1;transform:scale(1.06)}}
+  @keyframes beat{0%,60%,100%{transform:scale(1)}20%{transform:scale(1.12)}40%{transform:scale(.97)}}
+  @keyframes fall{
+    0%{opacity:0;transform:translate3d(0,0,0) rotate(0)}
+    10%{opacity:.85}
+    90%{opacity:.7}
+    100%{opacity:0;transform:translate3d(var(--dx),110svh,0) rotate(var(--rot))}
+  }
+  @keyframes cue{0%{opacity:0;transform:translateY(0)}40%{opacity:1}100%{opacity:0;transform:translateY(12px)}}
+  @keyframes progress{to{transform:scaleX(1)}}
+  @keyframes medalDrop{
+    0%{transform:translateY(-62svh) rotate(-7deg)}
+    65%{transform:translateY(10px) rotate(2.5deg)}
+    82%{transform:translateY(-4px) rotate(-1deg)}
+    100%{transform:translateY(0) rotate(0)}
+  }
+  @keyframes glowIn{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:scale(1)}}
+  @keyframes sparkOut{
+    0%{opacity:0;transform:translate(0,0) scale(.2)}
+    40%{opacity:1}
+    100%{opacity:0;transform:translate(var(--sx),var(--sy)) scale(1)}
+  }
+  @keyframes layerIn{from{opacity:0;transform:translateY(-60px)}to{opacity:1;transform:none}}
+
+  /* Hero (siempre por tiempo) */
+  .ch{animation:chIn .9s cubic-bezier(.2,.75,.2,1) both;animation-delay:calc(.25s + var(--i) * 45ms)}
+  .hero .kicker,.hero-sub{animation:fadeIn 1.2s ease both}
+  .hero .kicker{animation-delay:.1s}
+  .hero-sub{animation-delay:1.5s}
+  .sun{animation:breathe 7s ease-in-out infinite}
+  .petal{animation:fall var(--dur) linear var(--delay) infinite}
+  .scroll-cue::after{animation:cue 1.8s ease-in-out 2s infinite}
+
+  /* Elementos ligados a escena: estado inicial + reproducción en .in */
+  .ecg-line,.ecg-glow,.stem{stroke-dasharray:1;stroke-dashoffset:1}
+  .sd{animation-duration:var(--dur,1.4s);animation-timing-function:cubic-bezier(.2,.7,.2,1);
+      animation-delay:var(--delay,0s);animation-fill-mode:both;animation-play-state:paused}
+  .in .sd,.sd.in{animation-play-state:running}
+
+  .ecg-line,.ecg-glow{animation-name:draw;--dur:2.6s}
+  .heart-fill{animation-name:pop;--delay:2.2s;--dur:.8s;transform-box:fill-box;transform-origin:50% 60%}
+  .heart-beat{animation:beat 1.6s ease-in-out 3s infinite}
+  .ecg-title{animation-name:fadeUp;--delay:2.4s}
+
+  .stem{animation-name:draw;--dur:1.8s}
+  .leaf{animation-name:pop;--dur:.7s;--delay:calc(.2s + var(--i) * 120ms)}
+  .laurel-text{animation-name:fadeIn;--delay:1.6s}
+
+  @keyframes walkL{from{transform:translateX(-42px)}to{transform:none}}
+  @keyframes walkR{from{transform:translateX(42px)}to{transform:none}}
+  @keyframes bob{0%,100%{transform:none}50%{transform:translateY(-1px)}}
+  @keyframes floatUp{0%{opacity:0;transform:translateY(4px)}25%{opacity:1}100%{opacity:0;transform:translateY(-10px)}}
+  .px-her{animation-name:walkL;--dur:1.6s;animation-timing-function:steps(8)}
+  .px-dad{animation-name:walkR;--dur:1.6s;--delay:.3s;animation-timing-function:steps(8)}
+  .bob{animation:bob 1.1s steps(1,end) infinite}
+  .px-dad .bob{animation-delay:.55s}
+  .px-love{animation-name:fadeIn;--delay:1.8s;--dur:.6s;animation-timing-function:steps(3)}
+  .px-heart{animation:floatUp 2.4s steps(7) infinite;animation-delay:var(--hd)}
+  .done{animation-name:fadeUp;--delay:2s;--dur:.9s}
+
+  .medal-drop{animation-name:medalDrop;--dur:2s}
+  .medal-glow{animation-name:glowIn;--delay:1.6s;--dur:1.2s}
+  .spark{animation-name:sparkOut;--delay:calc(1.9s + var(--i) * 40ms);--dur:1.2s}
+  .m-lines p{animation-name:fadeUp;--delay:calc(.6s + var(--i) * .7s);--dur:1s}
+
+  .layer{animation-name:layerIn;--dur:.7s;--delay:calc(var(--i) * 110ms)}
+  .ticket{animation-name:fadeUp;--delay:.6s}
+
+  /* ---------- Scroll-driven nativo ---------- */
+  @supports (animation-timeline: view()){
+    .progress{animation:progress linear both;animation-timeline:scroll(root block)}
+
+    .sd{animation-play-state:running;animation-duration:1ms;animation-delay:0s;animation-timing-function:linear}
+
+    .ecg-line,.ecg-glow{animation-timeline:--ecg;animation-range:contain 0% contain 62%}
+    .heart-fill{animation-timeline:--ecg;animation-range:contain 58% contain 72%}
+    .ecg-title{animation-timeline:--ecg;animation-range:contain 64% contain 80%}
+
+    .stem{animation-timeline:--laurel;animation-range:contain 0% contain 55%}
+    .leaf{animation-timeline:--laurel;
+          animation-range:contain calc(4% + var(--i) * 5%) contain calc(16% + var(--i) * 5%)}
+    .laurel-text{animation-timeline:--laurel;animation-range:contain 55% contain 72%}
+
+    .px-her{animation-timeline:--logro;animation-range:contain 0% contain 38%;animation-timing-function:steps(8)}
+    .px-dad{animation-timeline:--logro;animation-range:contain 8% contain 46%;animation-timing-function:steps(8)}
+    .px-love{animation-timeline:--logro;animation-range:contain 46% contain 56%;animation-timing-function:steps(3)}
+    .done{animation-timeline:--logro;animation-range:contain 52% contain 70%;animation-timing-function:ease-out}
+
+    .medal-drop{animation-timeline:--medal;animation-range:contain 0% contain 42%;animation-timing-function:ease-out}
+    .medal-glow{animation-timeline:--medal;animation-range:contain 36% contain 50%}
+    .spark{animation-timeline:--medal;animation-range:contain 40% contain 58%}
+    .m-lines p{animation-timeline:--medal;
+          animation-range:contain calc(8% + var(--i) * 18%) contain calc(22% + var(--i) * 18%)}
+
+    .layer{animation-timeline:view();
+          animation-range:entry calc(10% + var(--i) * 8%) cover calc(30% + var(--i) * 6%);animation-timing-function:ease-out}
+    .ticket{animation-timeline:view();animation-range:entry 10% cover 30%}
+  }
+}
+
+/* Movimiento reducido: escenas largas se acortan, todo en su estado final */
+@media (prefers-reduced-motion: reduce){
+  .tall,#medal{height:auto}
+  .sticky{position:relative;height:auto;min-height:100svh;padding-top:72px;padding-bottom:72px}
+  .petals,.scroll-cue{display:none}
+}
+</style>
+</head>
+<body>
+
+<div class="progress" aria-hidden="true"></div>
+<canvas id="confetti" aria-hidden="true"></canvas>
+
+<!-- 1. HERO -->
+<header class="hero">
+  <div class="sun" aria-hidden="true"></div>
+  <div class="petals" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <p class="kicker">Promoción 2026</p>
+    <h1 class="name" aria-label="Doctora Eglee Margarita Rodríguez Rodríguez">
+      <span class="line dra" data-split>Dra.</span>
+      <span class="line big" data-split>Eglee</span>
+      <span class="line big it" data-split>Margarita</span>
+      <span class="line big" data-split>Rodríguez Rodríguez</span>
+    </h1>
+    <p class="hero-sub"><b>Médica Cirujana</b> · Summa Cum Laude</p>
+  </div>
+  <div class="scroll-cue" aria-hidden="true"></div>
+</header>
+
+<!-- 2. MÉDICA CIRUJANA -->
+<section id="ecg" class="tall" data-io aria-label="Médica Cirujana">
+  <div class="sticky">
+    <svg class="ecg" viewBox="0 0 380 110" aria-hidden="true">
+      <g class="ecg-grid">
+        <line x1="0" y1="22" x2="380" y2="22"/><line x1="0" y1="62" x2="380" y2="62"/><line x1="0" y1="102" x2="380" y2="102"/>
+      </g>
+      <path class="ecg-glow sd" pathLength="1" d="M0 62 H48 l6 -6 l6 6 H78 l5 8 l9 -52 l9 66 l7 -22 H138 l7 -8 l7 8 H160 l6 -6 l6 6 H190 l5 8 l9 -52 l9 66 l7 -22 H250 l7 -8 l7 8 H300 C292 44 312 30 330 46 C348 30 368 44 360 62 C354 76 340 86 330 96 C320 86 306 76 300 62"/>
+      <path class="ecg-line sd" pathLength="1" d="M0 62 H48 l6 -6 l6 6 H78 l5 8 l9 -52 l9 66 l7 -22 H138 l7 -8 l7 8 H160 l6 -6 l6 6 H190 l5 8 l9 -52 l9 66 l7 -22 H250 l7 -8 l7 8 H300 C292 44 312 30 330 46 C348 30 368 44 360 62 C354 76 340 86 330 96 C320 86 306 76 300 62"/>
+      <g class="heart-beat">
+        <path class="heart-fill sd" d="M300 62 C292 44 312 30 330 46 C348 30 368 44 360 62 C354 76 340 86 330 96 C320 86 306 76 300 62Z"/>
+      </g>
+    </svg>
+    <h2 class="ecg-title sd">Médica<br><em>Cirujana</em></h2>
+  </div>
+</section>
+
+<!-- 3. SUMMA CUM LAUDE -->
+<section id="laurel" class="tall" data-io aria-label="Summa Cum Laude">
+  <div class="sticky">
+    <p class="kicker" style="margin-bottom:18px">Con honores</p>
+    <div class="laurel-box">
+      <svg viewBox="0 0 240 240" aria-hidden="true">
+        <defs>
+          <linearGradient id="gold" x1="0" y1="1" x2="0" y2="0">
+            <stop offset="0" stop-color="#c9a24a"/><stop offset="1" stop-color="#e59bb0"/>
+          </linearGradient>
+          <linearGradient id="leafg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#e6c98a"/><stop offset=".55" stop-color="#d4a85a"/><stop offset="1" stop-color="#e48aa5"/>
+          </linearGradient>
+        </defs>
+        <g id="branch"></g>
+        <g id="branch-r" transform="translate(240 0) scale(-1 1)"></g>
+      </svg>
+      <div class="laurel-text sd"><span class="s1">Summa</span><span class="s2">Cum Laude</span></div>
+    </div>  </div>
+</section>
+
+<!-- 4. LO LOGRASTE (pixel art) -->
+<section id="logro" class="tall" data-io aria-label="Lo lograste">
+  <div class="sticky">
+    <div class="px-frame">
+      <svg class="pixel" id="pixel" viewBox="0 0 66 58" role="img" aria-label="Eglee y su papá en la graduación, en pixel art"></svg>
+    </div>
+    <p class="done sd">Lo lograste.</p>
+  </div>
+</section>
+
+<!-- 5. EL MOMENTO FAVORITO -->
+<section id="medal" data-io aria-label="El momento favorito">
+  <div class="sticky">
+    <div class="medal-stage" aria-hidden="true">
+      <div class="medal-glow sd"></div>
+      <span class="spark sd" style="--i:0;--sx:-92px;--sy:-30px"></span>
+      <span class="spark sd" style="--i:1;--sx:88px;--sy:-44px"></span>
+      <span class="spark sd" style="--i:2;--sx:-70px;--sy:-96px"></span>
+      <span class="spark sd" style="--i:3;--sx:64px;--sy:-104px"></span>
+      <span class="spark sd" style="--i:4;--sx:-104px;--sy:30px"></span>
+      <span class="spark sd" style="--i:5;--sx:102px;--sy:26px"></span>
+      <div class="medal-drop sd">
+        <svg viewBox="0 0 200 560">
+          <defs>
+            <linearGradient id="rib" x1="0" x2="1">
+              <stop offset="0" stop-color="#c2255c"/><stop offset=".5" stop-color="#e64980"/><stop offset="1" stop-color="#c2255c"/>
+            </linearGradient>
+            <radialGradient id="disc" cx=".38" cy=".32" r=".8">
+              <stop offset="0" stop-color="#fff1c9"/><stop offset=".45" stop-color="#e6c98a"/><stop offset="1" stop-color="#b08530"/>
+            </radialGradient>
+          </defs>
+          <path d="M62 0 H86 L108 448 H90 Z" fill="url(#rib)"/>
+          <path d="M138 0 H114 L92 448 H110 Z" fill="url(#rib)" opacity=".92"/>
+          <rect x="84" y="438" width="32" height="16" rx="3" fill="#b08530"/>
+          <circle cx="100" cy="500" r="54" fill="url(#disc)"/>
+          <circle cx="100" cy="500" r="44" fill="none" stroke="#b08530" stroke-width="1.5" opacity=".7"/>
+          <circle cx="100" cy="500" r="38" fill="none" stroke="#fff4d6" stroke-width="1" opacity=".7"/>
+          <!-- Vara de Asclepio -->
+          <line x1="100" y1="472" x2="100" y2="530" stroke="#8a6420" stroke-width="3" stroke-linecap="round"/>
+          <path d="M92 478 C112 482 112 492 100 496 C88 500 88 510 108 514 C116 516 112 524 100 524" fill="none" stroke="#a61e4d" stroke-width="2.6" stroke-linecap="round"/>
+          <circle cx="91" cy="477" r="2.6" fill="#a61e4d"/>
+        </svg>
+      </div>
+    </div>
+    <p class="kicker" style="margin:4px 0 14px">El momento favorito</p>
+    <div class="m-lines">
+      <p class="hl sd" style="--i:2">Y entonces <em>tu papá</em> te puso la medalla.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 6. CELEBRACIÓN PENDIENTE -->
+<section class="treat screen" data-io aria-label="Celebración pendiente">
+  <div class="wrap">
+    <p class="kicker">Celebración pendiente</p>
+    <h2>Esto se celebra<br><em>como se debe</em></h2>
+    <div class="treat-art" aria-hidden="true">
+      <svg width="150" height="140" viewBox="0 0 150 140">
+        <g class="layer sd" style="--i:0">
+          <rect x="22" y="62" width="106" height="74" rx="6" fill="#f1bccb"/>
+          <rect x="22" y="62" width="106" height="10" fill="#e48aa5" opacity=".45"/>
+          <rect x="68" y="62" width="14" height="74" fill="#c9a24a"/>
+        </g>
+        <g class="layer sd" style="--i:1">
+          <rect x="14" y="44" width="122" height="22" rx="5" fill="#e64980"/>
+          <rect x="68" y="44" width="14" height="22" fill="#e6c98a"/>
+        </g>
+        <g class="layer sd" style="--i:2">
+          <path d="M75 44 C60 18 34 20 40 34 C45 45 64 44 75 44Z" fill="#c9a24a"/>
+          <path d="M75 44 C90 18 116 20 110 34 C105 45 86 44 75 44Z" fill="#e6c98a"/>
+          <circle cx="75" cy="42" r="6" fill="#b08530"/>
+        </g>
+        <g class="layer sd" style="--i:3" fill="#c9a24a">
+          <path d="M18 18 l2 6 6 2 -6 2 -2 6 -2 -6 -6 -2 6 -2z"/>
+          <path d="M130 10 l1.6 4.4 4.4 1.6 -4.4 1.6 -1.6 4.4 -1.6 -4.4 -4.4 -1.6 4.4 -1.6z"/>
+          <path d="M138 52 l1.4 3.6 3.6 1.4 -3.6 1.4 -1.4 3.6 -1.4 -3.6 -3.6 -1.4 3.6 -1.4z"/>
+        </g>
+      </svg>
+    </div>
+    <div class="ticket sd" data-io>
+      <p class="kicker" style="margin-bottom:8px">Vale por</p>
+      <div class="row"><span>Plan</span><span>el que tú quieras</span></div>
+      <div class="row"><span>Lugar</span><span>donde tú digas</span></div>
+      <div class="row"><span>Válido</span><span>cuando tú quieras</span></div>
+      <p class="sign">Invito yo.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 7. CIERRE -->
+<section class="close" data-io aria-label="Felicidades">
+  <div class="wrap">
+    <p class="kicker">Para ti</p>
+    <h2>Felicidades,<em>mi linda Margarita</em></h2>
+    <p>Qué orgullo verte llegar hasta aquí, doctora.</p>
+    <button class="btn" id="celebrar" type="button">Toca para celebrar</button>
+    <p class="signoff">Dra. E. M. Rodríguez Rodríguez · Summa Cum Laude</p>
+  </div>
+</section>
+
+<script>
+(() => {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const scrollDriven = CSS.supports('animation-timeline: view()');
+
+  // Letras escalonadas del hero
+  let i = 0;
+  document.querySelectorAll('[data-split]').forEach(el => {
+    const text = el.textContent.trim();
+    el.textContent = '';
+    el.setAttribute('aria-hidden', 'true');
+    text.split(' ').forEach((w, wi) => {
+      const word = document.createElement('span');
+      word.className = 'word';
+      [...w].forEach(c => {
+        const s = document.createElement('span');
+        s.className = 'ch'; s.textContent = c; s.style.setProperty('--i', i++);
+        word.appendChild(s);
+      });
+      if (wi) el.append(' ');
+      el.appendChild(word);
+    });
+  });
+
+  // Pétalos
+  if (!reduce) {
+    const box = document.querySelector('.petals');
+    for (let n = 0; n < 14; n++) {
+      const p = document.createElement('span');
+      p.className = 'petal';
+      p.style.cssText = `--x:${Math.random()*100}%;--s:${8+Math.random()*10}px;--dur:${9+Math.random()*8}s;` +
+        `--delay:${-Math.random()*14}s;--dx:${(Math.random()-.5)*120}px;--rot:${(Math.random()-.5)*720}deg`;
+      box.appendChild(p);
+    }
+  }
+
+  // Corona de laurel
+  const NS = 'http://www.w3.org/2000/svg';
+  const cx = 120, cy = 126, r = 90;
+  const pt = a => [cx + r*Math.cos(a*Math.PI/180), cy + r*Math.sin(a*Math.PI/180)];
+  const branch = document.getElementById('branch');
+  const [sx, sy] = pt(104), [ex, ey] = pt(252);
+  const stem = document.createElementNS(NS, 'path');
+  stem.setAttribute('d', `M${sx} ${sy} A${r} ${r} 0 0 1 ${ex} ${ey}`);
+  stem.setAttribute('pathLength', '1');
+  stem.setAttribute('class', 'stem sd');
+  branch.appendChild(stem);
+  const LEAVES = 10;
+  for (let k = 0; k < LEAVES; k++) {
+    const a = 110 + k * 14.5;
+    const [x, y] = pt(a);
+    const scale = 1 - k * 0.035;
+    [-38, 38].forEach((off, j) => {
+      if (k === LEAVES - 1 && j === 1) return;
+      const g = document.createElementNS(NS, 'g');
+      g.setAttribute('transform', `translate(${x.toFixed(1)} ${y.toFixed(1)}) rotate(${(a + 90 + off).toFixed(1)}) scale(${scale.toFixed(2)})`);
+      const leaf = document.createElementNS(NS, 'path');
+      leaf.setAttribute('d', 'M0 0 C6 -7.5 17 -7.5 24 0 C17 7.5 6 7.5 0 0Z');
+      leaf.setAttribute('class', 'leaf sd');
+      leaf.style.setProperty('--i', k);
+      g.appendChild(leaf);
+      branch.appendChild(g);
+    });
+  }
+  document.getElementById('branch-r').innerHTML = branch.innerHTML;
+
+
+  // Pixel art: Eglee y su papá
+  (() => {
+    const PAL = {k:'#1d1519',g:'#3b2e37',H:'#3b2219',h:'#6b4030',S:'#f3c9aa',s:'#dba586',T:'#c88a5f',t:'#a56c45',
+      E:'#2a1a22',p:'#f19bb3',M:'#c2255c',W:'#f7f3ea',w:'#d9d1c3',Y:'#f2c230',y:'#c99a1c',B:'#3d5be0',b:'#2a40a8',
+      G:'#e2bd62',O:'#a8802e',L:'#e4e4ec',D:'#fff4dc',K:'#24141b',R:'#d6336c',r:'#f28bab'};
+    const grid = (w, h, ops) => {
+      const g = Array.from({length: h + 2}, () => Array(w + 2).fill(null));
+      for (const [c, x, y, ww = 1, hh = 1] of ops)
+        for (let j = y; j < y + hh; j++) for (let i = x; i < x + ww; i++)
+          if (j >= 0 && j < h && i >= 0 && i < w) g[j + 1][i + 1] = c;
+      // contorno automático, estilo sprite
+      const out = g.map(r => r.slice());
+      for (let j = 0; j < g.length; j++) for (let i = 0; i < g[0].length; i++) {
+        if (g[j][i]) continue;
+        if ((g[j-1]||[])[i] || (g[j+1]||[])[i] || g[j][i-1] || g[j][i+1]) out[j][i] = 'K';
+      }
+      return out;
+    };
+    const rects = (g, ox, oy) => {
+      let s = '';
+      g.forEach((row, j) => {
+        let i = 0;
+        while (i < row.length) {
+          const c = row[i];
+          if (!c) { i++; continue; }
+          let n = 1; while (row[i + n] === c) n++;
+          s += `<rect x="${ox + i}" y="${oy + j}" width="${n}" height="1" fill="${PAL[c] || c}"/>`;
+          i += n;
+        }
+      });
+      return s;
+    };
+    const her = grid(22, 40, [
+      ['H',3,5,16,18],['H',2,10,1,12],['H',19,10,1,12],['h',4,12,1,8],['h',17,12,1,8],
+      ['k',2,15,18,25],['k',1,18,20,13],
+      ['H',2,15,3,9],['H',17,15,3,9],['h',3,17,1,5],['h',18,17,1,5],
+      ['Y',5,15,1,22],['W',6,15,2,22],['w',7,15,1,22],['W',14,15,2,22],['w',15,15,1,22],['Y',16,15,1,22],
+      ['S',9,13,4,2],['S',10,15,2,1],
+      ['Y',8,15],['Y',9,16],['Y',10,17],['Y',13,15],['Y',12,16],['Y',11,17],['Y',10,18,2,3],['G',10,21,2,2],['O',10,22,2,1],
+      ['S',6,6,10,8],['s',6,12,1,2],['s',15,12,1,2],['H',5,5,12,2],['H',5,7,1,3],['H',16,7,1,3],['h',8,5,4,1],
+      ['E',8,9,1,2],['E',13,9,1,2],['p',7,11],['p',14,11],['M',10,12,2,1],
+      ['k',5,2,12,3],['k',2,1,18,1],['g',4,0,14,1],['Y',18,1,1,7],['y',18,8,1,2],
+      ['D',5,26,12,2],['w',5,27,12,1],['Y',11,26,1,2],['S',7,26,2,2],['S',13,26,2,2],
+      ['g',4,31,1,8],['g',9,30,1,9],['g',13,30,1,9],['g',17,31,1,8]
+    ]);
+    const dad = grid(22, 44, [
+      ['T',7,5,8,9],['t',7,12,1,2],['t',14,12,1,2],
+      ['H',6,5,10,1],['H',6,6,1,3],['H',15,6,1,3],['H',8,7,2,1],['H',12,7,2,1],
+      ['E',9,8],['E',12,8],['t',11,9,1,2],['h',9,11,4,1],['t',10,12,2,1],
+      ['T',9,14,4,1],
+      ['k',2,15,18,29],['k',1,17,20,18],
+      ['W',9,15,4,3],['L',10,16,2,8],
+      ['B',5,15,3,24],['b',5,15,1,24],['B',14,15,3,24],['b',16,15,1,24],
+      ['B',8,15,1,3],['B',13,15,1,3],['B',9,18,1,3],['B',12,18,1,3],['B',10,21,2,2],
+      ['G',9,23,4,3],['O',9,25,4,1],['W',10,23,1,1],
+      ['T',1,35,2,2],['T',19,35,2,2],
+      ['g',4,39,1,5],['g',9,30,1,14],['g',13,30,1,14],['g',17,39,1,5],
+      ['k',6,2,10,3],['k',2,1,18,1],['g',5,0,12,1],['W',18,1,1,7],['w',18,8,1,2]
+    ]);
+    let bg = '';
+    for (let x = 0; x < 66; x++) bg += `<rect x="${x}" y="0" width="1" height="45" fill="${x % 4 < 2 ? '#f6ece2' : '#ecdccd'}"/>`;
+    for (let x = 0; x < 66; x += 6) bg += `<rect x="${x}" y="0" width="6" height="2" fill="#f1bccb"/><rect x="${x + 1}" y="2" width="4" height="1" fill="#f1bccb"/><rect x="${x + 2}" y="3" width="2" height="1" fill="#e48aa5"/>`;
+    bg += '<rect x="0" y="45" width="66" height="13" fill="#b07c50"/>';
+    for (let y = 48; y < 58; y += 4) bg += `<rect x="0" y="${y}" width="66" height="1" fill="#946240"/>`;
+    for (let k = 0; k < 9; k++) bg += `<rect x="${(k * 13 + (k % 2) * 6) % 66}" y="${45 + (k % 3) * 4}" width="1" height="3" fill="#946240"/>`;
+    bg += '<rect x="9" y="49" width="48" height="2" fill="#8a5a38" opacity=".55"/>';
+    const heart = (x, y, d, c = 'R') => {
+      const m = ['.XX.XX.', 'XXXXXXX', 'XXXXXXX', '.XXXXX.', '..XXX..', '...X...'];
+      let s = '';
+      m.forEach((row, j) => [...row].forEach((ch, i) => { if (ch === 'X') s += `<rect x="${x + i}" y="${y + j}" width="1" height="1" fill="${PAL[c]}"/>`; }));
+      return `<g class="px-heart" style="--hd:${d}s">${s}</g>`;
+    };
+    const spark = (x, y) => `<rect x="${x}" y="${y - 1}" width="1" height="3" fill="#e2bd62"/><rect x="${x - 1}" y="${y}" width="3" height="1" fill="#e2bd62"/>`;
+    document.getElementById('pixel').innerHTML =
+      `<g>${bg}</g>` +
+      `<g class="px-her sd"><g class="bob">${rects(her, 7, 9)}</g></g>` +
+      `<g class="px-dad sd"><g class="bob">${rects(dad, 33, 5)}</g></g>` +
+      `<g class="px-love sd">${heart(29, 8, 0)}${heart(25, 14, .8, 'r')}${heart(27, 23, 1.6, 'r')}${spark(5, 8)}${spark(61, 12)}${spark(58, 30)}${spark(4, 30)}</g>`;
+  })();
+
+  // Fallback: IntersectionObserver + barra de progreso por JS
+  if (!scrollDriven) {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -25% 0px' });
+    document.querySelectorAll('[data-io]').forEach(el => io.observe(el));
+
+    const bar = document.querySelector('.progress');
+    let ticking = false;
+    const upd = () => {
+      const max = document.documentElement.scrollHeight - innerHeight;
+      bar.style.transform = `scaleX(${max > 0 ? scrollY / max : 0})`;
+      ticking = false;
+    };
+    addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(upd); } }, { passive: true });
+    upd();
+  }
+
+  // Confeti
+  const cv = document.getElementById('confetti');
+  const ctx = cv.getContext('2d');
+  const colors = ['#d6336c', '#e64980', '#f1bccb', '#f6d6de', '#c9a24a', '#e6c98a', '#fff8f1'];
+  let parts = [], raf = 0, W = 0, H = 0;
+  const size = () => {
+    const d = Math.min(devicePixelRatio || 1, 2);
+    W = innerWidth; H = innerHeight;
+    cv.width = W * d; cv.height = H * d;
+    ctx.setTransform(d, 0, 0, d, 0, 0);
+  };
+  size(); addEventListener('resize', size);
+
+  const burst = (x, y, n, spread = 1, dir = 0) => {
+    for (let k = 0; k < n; k++) {
+      const ang = -Math.PI/2 + dir + (Math.random() - .5) * 1.6 * spread;
+      const sp = 7 + Math.random() * 9;
+      parts.push({
+        x, y, vx: Math.cos(ang) * sp, vy: Math.sin(ang) * sp,
+        rot: Math.random() * 6.28, vr: (Math.random() - .5) * .35,
+        w: 6 + Math.random() * 6, h: 3 + Math.random() * 5,
+        c: colors[(Math.random() * colors.length) | 0],
+        shape: Math.random() < .3 ? 1 : 0, wob: Math.random() * 6.28
+      });
+    }
+    if (!raf) raf = requestAnimationFrame(tick);
+  };
+  const tick = () => {
+    ctx.clearRect(0, 0, W, H);
+    parts = parts.filter(p => p.y < H + 30);
+    for (const p of parts) {
+      p.vx *= .985; p.vy = p.vy * .985 + .28;
+      p.wob += .12; p.x += p.vx + Math.sin(p.wob) * .6; p.y += p.vy; p.rot += p.vr;
+      ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.rot);
+      ctx.fillStyle = p.c;
+      if (p.shape) { ctx.beginPath(); ctx.ellipse(0, 0, p.w * .55, p.h * .7, 0, 0, 6.283); ctx.fill(); }
+      else ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h * Math.abs(Math.cos(p.wob)) + 1);
+      ctx.restore();
+    }
+    raf = parts.length ? requestAnimationFrame(tick) : 0;
+  };
+  const celebrate = () => {
+    const n = reduce ? 40 : 110;
+    const b = document.getElementById('celebrar').getBoundingClientRect();
+    burst(b.left + b.width / 2, b.top, n, 1.1);
+    if (!reduce) setTimeout(() => { burst(0, H * .75, 60, .5, .7); burst(W, H * .75, 60, .5, -.7); }, 180);
+    if (navigator.vibrate) navigator.vibrate(25);
+  };
+  document.getElementById('celebrar').addEventListener('click', celebrate);
+})();
+</script>
+</body>
+</html>
